@@ -10,6 +10,11 @@ import java.util.List;
 @Service
 public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements RoleService {
 
+    /*
+     * · Overridden methods inherited from CrudService interface
+     * · Method implementation comes from AbstractMapService abstract class
+     *
+     */
 
     @Override
     public RoleDTO save(RoleDTO object) {

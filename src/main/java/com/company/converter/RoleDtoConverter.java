@@ -7,7 +7,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationPropertiesBinding // This annotation do data type conversion automatically
+@ConfigurationPropertiesBinding // TThis annotation does data type conversion automatically.
 public class RoleDtoConverter implements Converter<String,RoleDTO> {
 
     RoleService roleService;
@@ -19,7 +19,7 @@ public class RoleDtoConverter implements Converter<String,RoleDTO> {
     @Override
     public RoleDTO convert(String source) {
 
-        // convert String id in the map that comes from UI to Long
+        // convert String id in the map that comes from UI to Long (Object)
         return roleService.findById(Long.parseLong(source));
     }
 }
