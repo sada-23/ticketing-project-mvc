@@ -2,11 +2,14 @@ package com.company.controller;
 
 
 import com.company.dto.ProjectDTO;
+import com.company.dto.UserDTO;
 import com.company.service.ProjectService;
 import com.company.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/project")
@@ -73,6 +76,19 @@ public class ProjectController {
         projectService.update(project);
 
         return "redirect:/project/create";
+    }
+
+    @GetMapping("/manager/project-status")
+    public String getProjectByManager(Model model){
+
+        UserDTO manager = userService.findById("john@company.com");
+        List<ProjectDTO> projects = projectService.getCountedListOfProjectDTO(manager);
+
+        model.addAttribute("projects", projects);
+
+
+
+        return "/manager/project-status";
     }
 
 
